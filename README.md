@@ -80,5 +80,15 @@ Each messages gets also these extra values:
 
 Keep in mind the module needs access to the folder. Please check the console log output of the module to see if right are elevated correctly. 
 
+A simple check for access to the file is built in.
+
+## File location
+
+This module is tested with files available on the local file system only.
+
+## Contributions
+
+Our project accepts GitHub pull requests :-) 
+
 
 
