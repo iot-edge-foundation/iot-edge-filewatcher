@@ -110,7 +110,7 @@ namespace FileWatcherModule
             while (true)
             {
                 try
-                {
+                {                    
                     var files = Directory.GetFiles("exchange", SearchPattern);
 
                     System.Console.WriteLine($"{DateTime.UtcNow} - Seen {files.Length} files with pattern '{SearchPattern}'" );
@@ -119,6 +119,30 @@ namespace FileWatcherModule
                     {
                         foreach(var fileName in files)
                         {
+                            try
+                            {
+                                var canRead = false;
+                                var canWrite = false;
+
+                                using (var fs = new FileStream(fileName, FileMode.Open))
+                                {
+                                    canRead = fs.CanRead;
+                                    canWrite = fs.CanWrite;
+                                }
+
+                                if (!canRead
+                                        && !canWrite)
+                                {
+                                    System.Console.WriteLine($"File {fileName}: {(canRead? "is readable": "is not readable")}; {(canWrite? "is writable": "is not writable")}");                                                
+                                    continue;   
+                                }
+                            }
+                            catch
+                            {
+                                System.Console.WriteLine($"{fileName} cannot be opened");
+                                continue;
+                            }
+
                             var fileInfo = new FileInfo(fileName);
 
                             System.Console.WriteLine($"File found: '{fileInfo.FullName}' - Size: {fileInfo.Length} bytes.");

@@ -6,7 +6,7 @@ Azure IoT Edge module which reads CSV files and puts the rows as messages on the
 
 This module is open source so you can build your own Docker container.
 
-For convenience, a Linux AMD64 version is availabel at svelde/iot-edge-filewatcher:0.1.0-amd64 
+For convenience, a Linux AMD64 version is availabel at svelde/iot-edge-filewatcher:1.0.0-amd64 
 
 ## Container create options
 
