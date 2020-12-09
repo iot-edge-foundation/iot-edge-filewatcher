@@ -1,0 +1,10 @@
+{
+    "HostConfig": {
+        "Binds": [
+          "/var/iot-edge-filewatcher/exchange:/app/exchange"
+        ]
+    }
+}
+
+
+

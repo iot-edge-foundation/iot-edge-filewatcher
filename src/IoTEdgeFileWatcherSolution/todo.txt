@@ -1,0 +1,14 @@
+The initial folder does not give any rights for renaming a file or creating a sub folder.
+
+sudo chmod 666 exchange
+
+This gives elevated to the folder 
+
+
+TODO:
+
+- check for write rights, ignore file if not available
+- add desired property for move or rename
+
+
+
