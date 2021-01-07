@@ -88,7 +88,8 @@ This module is tested with files available on the local file system only.
 
 ## Contributions
 
+Sourcecode is available at [GitHub](https://github.com/iot-edge-foundation/iot-edge-filewatcher).
+
+An example container is available on [Docker Hub](https://hub.docker.com/repository/docker/svelde/iot-edge-filewatcher).
+
 Our project accepts GitHub pull requests :-) 
-
-
-
