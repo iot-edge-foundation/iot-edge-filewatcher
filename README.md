@@ -71,6 +71,7 @@ Empty lines in the file are ignored.
 
 Each messages gets also these extra values:
 
+* lineNumber
 * fileName
 * timestamp
 * moduleId

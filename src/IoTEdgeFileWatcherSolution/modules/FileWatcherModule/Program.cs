@@ -20,6 +20,8 @@ namespace FileWatcherModule
         private const string DefaultSearchPattern = "*.txt";
         private const string DefaultRenameExtension = ".old";
 
+        private static int _lineNumber;
+
         private static string _moduleId;
 
         private static string _deviceId;
@@ -119,6 +121,8 @@ namespace FileWatcherModule
                     {
                         foreach(var fileName in files)
                         {
+                            _lineNumber = 0;
+
                             try
                             {
                                 var canRead = false;
@@ -191,6 +195,9 @@ namespace FileWatcherModule
                                             j++;
                                         }
 
+                                        _lineNumber++;
+
+                                        expando.Add("line", _lineNumber);
                                         expando.Add("fileName", fileInfo.Name);
                                         expando.Add("timestamp", DateTime.UtcNow);
                                         expando.Add("moduleId", _moduleId);
