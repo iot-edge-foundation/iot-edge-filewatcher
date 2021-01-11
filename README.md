@@ -59,7 +59,8 @@ With desired properties, we can change the behavior:
 * delimiter, a single character - Default ','
 * interval, the interval in milliseconds - Default 10000
 * searchPattern, the pattern mapped on filenames  - Default '*.txt'
-* renameExtension - the appended extension to prevent a file being read twice - Default '.old'
+* renameExtension, the appended extension to prevent a file being read twice - Default '.old'
+* lineDelay, delays the processing of the file for each line sent - Default 0
 
 ## Messages
 

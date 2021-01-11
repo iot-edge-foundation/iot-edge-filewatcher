@@ -22,6 +22,8 @@ namespace FileWatcherModule
 
         private static int _lineNumber;
 
+        private static int DefaultLineDelay = 0;  
+
         private static string _moduleId;
 
         private static string _deviceId;
@@ -225,6 +227,8 @@ namespace FileWatcherModule
                                     }
 
                                     i++;
+
+                                    Thread.Sleep(LineDelay);
                                 }
                             }
 
@@ -253,9 +257,12 @@ namespace FileWatcherModule
             }
         }
 
+        public static int LineDelay { get; set; } = DefaultLineDelay;
         public static char Delimiter {get; set;} = DefaultDelimiter[0];
         public static int Interval {get; set;} = DefaultInterval;
+
         public static string RenameExtension {get; set;} = DefaultRenameExtension;
+
         public static string SearchPattern {get; set;} = DefaultSearchPattern;
 
         /// <summary>
@@ -327,6 +334,26 @@ namespace FileWatcherModule
                 else
                 {
                     Console.WriteLine($"Interval ignored");
+                }
+
+                if (desiredProperties.Contains("lineDelay")) 
+                {
+                    if (desiredProperties["lineDelay"] != null)
+                    {
+                        LineDelay = desiredProperties["lineDelay"];
+                    }
+                    else
+                    {
+                        LineDelay = DefaultLineDelay;
+                    }
+
+                    Console.WriteLine($"LineDelay changed to '{LineDelay}'");
+
+                    reportedProperties["lineDelay"] = LineDelay;
+                } 
+                else
+                {
+                    Console.WriteLine($"LineDelay ignored");
                 }
 
                 if (desiredProperties.Contains("renameExtension")) 
